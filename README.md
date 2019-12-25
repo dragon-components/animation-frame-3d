@@ -64,7 +64,7 @@ npm run build
 [/placeholder]:p
 
 ## Author
-whxaxes
+dragon
 
 ## LICENSE
 MIT
