@@ -4,7 +4,7 @@
  * @Autor: dragon
  * @Date: 2019-12-26 20:15:09
  * @LastEditors  : dragon
- * @LastEditTime : 2019-12-26 20:15:15
+ * @LastEditTime : 2019-12-26 20:33:32
  -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">  
@@ -17,8 +17,7 @@
 
   </head>  
   <body>  
-    <div style="height:100px"></div>
-
+   <div style="height:100px"></div>
    <div id="marquee" style="overflow:hidden;height:500px;width:220px;margin-left:20px;">
       <div id="marqueecont">
        <ul style="margin:0px;list-style:none;">
@@ -50,14 +49,20 @@
          var marqueecont = document.getElementById('marqueecont');
          var marqueecont2 = document.getElementById('marqueecont2');
 
-		 MarqTop(marquee,marqueecont,marqueecont2,30);
+		 MarqTop(marquee,marqueecont,marqueecont2,1000);
 		 function MarqTop(marquee,marqueecont,marqueecont2,speed){
 			marqueecont2.innerHTML=marqueecont.innerHTML;
 			// 用这个函数这个滚动连续
 			function Marquee(){
 			if(marqueecont.offsetTop<=marquee.scrollTop)
-			   marquee.scrollTop-=marqueecont.offsetHeight;
+      {
+        console.log(marqueecont.offsetTop, 1000)
+        marquee.scrollTop-=marqueecont.offsetHeight;
+      }
 			else{
+        console.log(marquee.offsetTop, 2000)
+        console.log(marquee.scrollTop, 4000)
+        console.log(marqueecont.offsetHeight, 6000)
 			   marquee.scrollTop++;
 			  }
 			}
