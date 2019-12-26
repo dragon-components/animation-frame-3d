@@ -4,7 +4,7 @@
  * @Autor: dragon
  * @Date: 2019-12-26 20:15:09
  * @LastEditors  : dragon
- * @LastEditTime : 2019-12-26 20:33:32
+ * @LastEditTime : 2019-12-26 22:57:13
  -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">  
@@ -17,9 +17,9 @@
 
   </head>  
   <body>  
-   <div style="height:100px"></div>
-   <div id="marquee" style="overflow:hidden;height:500px;width:220px;margin-left:20px;">
-      <div id="marqueecont">
+   <div style="height:250px;background-color: rgb(136, 136, 206);"></div>
+   <div id="marquee" style="overflow:hidden;height:500px;width:220px;margin-left:20px;background-color: blueviolet;">
+      <div id="marqueecont" style="background-color: #c7bcc2;;">
        <ul style="margin:0px;list-style:none;">
         <li>1</li>
         <li>2</li>
@@ -41,35 +41,32 @@
         <li>18</li>
       </ul>
       </div>
-      <div id='marqueecont2'></div>
+      <div id='marqueecont2' style="background-color: #d4a8c2;"></div>
       </div>
         
      <script>
          var marquee = document.getElementById('marquee');
          var marqueecont = document.getElementById('marqueecont');
          var marqueecont2 = document.getElementById('marqueecont2');
-
-		 MarqTop(marquee,marqueecont,marqueecont2,1000);
-		 function MarqTop(marquee,marqueecont,marqueecont2,speed){
-			marqueecont2.innerHTML=marqueecont.innerHTML;
-			// 用这个函数这个滚动连续
-			function Marquee(){
-			if(marqueecont.offsetTop<=marquee.scrollTop)
-      {
-        console.log(marqueecont.offsetTop, 1000)
-        marquee.scrollTop-=marqueecont.offsetHeight;
-      }
-			else{
-        console.log(marquee.offsetTop, 2000)
-        console.log(marquee.scrollTop, 4000)
-        console.log(marqueecont.offsetHeight, 6000)
-			   marquee.scrollTop++;
-			  }
-			}
-			var MyMar=setInterval(Marquee,speed);
-			marquee.onmouseover=function() {clearInterval(MyMar);}
-			marquee.onmouseout=function() {MyMar=setInterval(Marquee,speed)};
-		  }
+        MarqTop(marquee,marqueecont,marqueecont2,30);
+        function MarqTop(marquee,marqueecont,marqueecont2,speed){
+          marqueecont2.innerHTML=marqueecont.innerHTML;
+          // 用这个函数这个滚动连续
+          // marqueecont.offsetTop 距离顶部的距离 marquee.scrollTop 滚动条滚动的距离
+          function Marquee(){
+          if(marqueecont.offsetTop<=marquee.scrollTop) 
+          {
+            debugger
+            marquee.scrollTop = marquee.scrollTop - marqueecont.offsetHeight;
+          }
+          else{
+            marquee.scrollTop++;
+            }
+          }
+          var MyMar=setInterval(Marquee,speed);
+          marquee.onmouseover=function() {clearInterval(MyMar);}
+          marquee.onmouseout=function() {MyMar=setInterval(Marquee,speed)};
+          }
 
        </script>  
   </body>  
